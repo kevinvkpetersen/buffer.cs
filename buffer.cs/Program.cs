@@ -19,7 +19,7 @@ namespace buffer.cs
 
             Console.WriteLine("Hello, you entered {0}, then {1}, then {2}.", args[0], args[1], args[2]);
 
-            CircularBuffer buffer = new CircularBuffer();
+            CircularBuffer<int> buffer = new CircularBuffer<int>();
             Console.WriteLine("Buffer size: {0}", buffer.Size);
 
             Console.WriteLine("Adding {0}", args[0]);

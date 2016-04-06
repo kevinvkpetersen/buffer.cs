@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace buffer.cs
 {
-    public class CircularBuffer
+    public class CircularBuffer<T>
     {
         private const int DEFAULT_SIZE = 8;
 
         public int Size { get; }
         
-        private int[] contents;
+        private T[] contents;
         private int inIndex = 0, outIndex = 0;
         
         public CircularBuffer(int maxSize = DEFAULT_SIZE)
         {
             this.Size = maxSize;
-            this.contents = new int[this.Size];
+            this.contents = new T[this.Size];
         }
 
-        public void add(int item)
+        public void add(T item)
         {
             if (this.contents.Length < this.Size)
             {
@@ -30,9 +30,9 @@ namespace buffer.cs
             }
         }
 
-        public int remove()
+        public T remove()
         {
-            int returnItem = contents[outIndex];
+            T returnItem = contents[outIndex];
             outIndex++;
             return returnItem;
         }
