@@ -11,6 +11,7 @@ namespace buffer.cs
         private const int DEFAULT_SIZE = 8;
 
         public int Size { get; }
+        public int Length { get { return inIndex - outIndex; } }
         
         private T[] contents;
         private int inIndex = 0, outIndex = 0;
@@ -23,18 +24,15 @@ namespace buffer.cs
 
         public void add(T item)
         {
-            if (this.contents.Length < this.Size)
+            if (this.Length < this.Size)
             {
-                this.contents[inIndex] = item;
-                inIndex++;
+                this.contents[inIndex++] = item;
             }
         }
 
         public T remove()
         {
-            T returnItem = contents[outIndex];
-            outIndex++;
-            return returnItem;
+            return this.contents[outIndex++];
         }
     }
 }
