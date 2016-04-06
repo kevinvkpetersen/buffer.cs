@@ -18,6 +18,14 @@ namespace buffer.cs
             }
 
             Console.WriteLine("Hello, you entered {0}, then {1}, then {2}.", args[0], args[1], args[2]);
+
+            CircularBuffer buffer = new CircularBuffer();
+            Console.WriteLine("Buffer size: {0}", buffer.Size);
+
+            Console.WriteLine("Adding {0}", args[0]);
+            buffer.add(Int32.Parse(args[0]));
+
+            Console.WriteLine("Removed {0}", buffer.remove());
         }
     }
 }
