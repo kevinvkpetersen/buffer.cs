@@ -24,12 +24,12 @@ namespace buffer.cs
 
             foreach (int item in Enumerable.Range(1,10))
             {
-                buffer.add(item);
+                buffer.Add(item);
             }
 
             foreach (int item in Enumerable.Range(1, 10))
             {
-                buffer.remove();
+                buffer.Remove();
             }
         }
     }

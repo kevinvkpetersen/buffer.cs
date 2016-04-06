@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace buffer.cs
         private int inIndex = 0, outIndex = 0;
 
         public int Size { get; }
-        public int Length { get { return this.inIndex - this.outIndex; } }
+        public int Count { get { return this.inIndex - this.outIndex; } }
 
         private int InIndex { get { return this.inIndex % this.Size; } set { this.inIndex = value; } }
         private int OutIndex { get { return this.outIndex % this.Size; } set { this.outIndex = value; } }
@@ -25,9 +26,9 @@ namespace buffer.cs
             this.contents = new T[this.Size];
         }
 
-        public void add(T item)
+        public void Add(T item)
         {
-            if (this.Length < this.Size)
+            if (this.Count < this.Size)
             {
                 this.contents[InIndex++] = item;
                 Console.WriteLine("Added {0}", item);
@@ -38,11 +39,11 @@ namespace buffer.cs
             }
         }
 
-        public T remove()
+        public T Remove()
         {
             T returnValue = default(T);
 
-            if (this.Length > 0)
+            if (this.Count > 0)
             {
                 returnValue = this.contents[OutIndex++];
                 Console.WriteLine("Removed {0}", returnValue, OutIndex);
