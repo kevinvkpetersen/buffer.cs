@@ -22,10 +22,15 @@ namespace buffer.cs
             CircularBuffer<int> buffer = new CircularBuffer<int>();
             Console.WriteLine("Buffer size: {0}", buffer.Size);
 
-            Console.WriteLine("Adding {0}", args[0]);
-            buffer.add(Int32.Parse(args[0]));
+            foreach (int item in Enumerable.Range(1,10))
+            {
+                buffer.add(item);
+            }
 
-            Console.WriteLine("Removed {0}", buffer.remove());
+            foreach (int item in Enumerable.Range(1, 10))
+            {
+                buffer.remove();
+            }
         }
     }
 }
